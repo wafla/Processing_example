@@ -13,9 +13,9 @@ let current;
 let stack = [];
 function setup() {
   createCanvas(num * w,num * w);
-  for(let i = 0; i < num; i++)  //맵을 자동으로 생성합니다. 이진수의 특징을 이용해서 2^(num-1) + a ~ 2^(num) 값을 이진수로 변환하여 문자열로 저장합니다.
-  {                             //조금 더 설명하자면 num이 10일 경우 2^10은 1024이고 이진수로 표현하면 1000000000이고 문자열로 보면 10자리입니다. 2^9는 0100000000이고 이 사이의 값을 적절히 섞었습니다.
-    let x = random(pow(2,num-1) + random(pow(2,num/2), pow(2,num)));  
+  for(let i = 0; i < num; i++)  //맵을 자동으로 생성합니다. 이진수의 특징을 이용해서 2^(num) ~ 2^(num+1) 값을 이진수로 변환하여 문자열로 저장합니다.
+  {                             //조금 더 설명하자면 num이 10일 경우 2^10은 1024이고 이진수로 표현하면 1000000000이고 문자열로 보면 10자리입니다. 2^11는 10000000000이고 이 사이의 값을 적절히 섞었습니다.
+    let x = random(pow(2,num), pow(2,num+1));
     map[i] = str(floor(x.toString(2)));
   }
   for(let i = 0; i < num; i++)
